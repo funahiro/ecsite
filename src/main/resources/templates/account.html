@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http//:www.thymeleaf.org">
+	<head>
+		<meta charset=UTF-8>
+		<title>新規登録</title>
+		<link href="/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
+		<script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
+		
+		<script>
+			function Chack(){
+				if(document.new.userName.value=="" ||document.new.password.value=="" ||document.new.fullName.value==""){
+					alert("未入力の項目があります。\n入力してから登録ボタンを押してください");
+					return false;
+				}
+				return true;
+			}
+		</script>
+	</head>
+	
+	<body>
+		<header>
+			<h1>新規登録</h1>
+			<div>
+				<form name="loginForm" method="post" action="/ecsite/" th:action="@{/ecsite/}">
+					<button type="submit">購入ページに戻る</button>
+				</form>
+			</div>
+		</header>
+		
+		<div id="account">
+			<h2 >アカウント作成</h2>
+			<form name="new" id="new" method="post"
+				action="/ecsite/new" th:action="@{/ecsite/new}" onsubmit="return Chack()">
+				<p>アカウント名:<input type="text" name="userName" /></p>
+				<p>パスワード　:<input type="password" name="password" /></p>
+				<p>名前　　　　:<input type="text" name="fullName" /></p>
+				<button type="submit">登録</button>
+			</form>
+		</div>
+	
+	
+	
+	</body>
+
+</html>
